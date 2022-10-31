@@ -18,6 +18,11 @@ public class ClothController {
 	
 	@Autowired
 	ClothRepository clothRepository;
+	
+	@GetMapping(value = {"/", "index"})
+	public String mainpage(Model model) {
+		return "mainpage";
+	}
 
 	@GetMapping("clothlist")
 	public String showClothes(Model model) {
