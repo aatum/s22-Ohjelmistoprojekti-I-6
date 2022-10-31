@@ -16,6 +16,7 @@
 		</tr>
 
 		<tr th:each="cloth : ${cloth}">
+			<td th:text="${cloth.id}"></td>
 			<td th:text="${cloth.name}"></td>
 			<td th:text="${cloth.type}"></td>
 			<td th:text="${cloth.producer}"></td>
