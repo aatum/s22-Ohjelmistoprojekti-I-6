@@ -23,7 +23,8 @@ public class S22ohjelmistoprojekti1Application {
 	@Bean
 	public CommandLineRunner BookStuff(ClothRepository clothRepository) {
 		return (args) -> {
-			clothRepository.save(new Cloth("asd","asd","asd","asd", 0));
+			clothRepository.save(new Cloth("vaate1","type1","producer1","description1", 39.99));
+			clothRepository.save(new Cloth("vaate2","type2","producer2","description2", 29.99));
 
 		};	
 	}

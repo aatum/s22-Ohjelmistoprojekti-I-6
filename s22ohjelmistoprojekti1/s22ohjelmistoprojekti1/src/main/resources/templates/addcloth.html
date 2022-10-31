@@ -1,0 +1,47 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Add cloth</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+
+
+<body>
+	<h1>Add cloth</h1>
+	<div>
+	
+		<form th:object="${cloth}" th:action="@{save}" action="#" method="post">
+		
+			<div>
+		  	<label for="Name">Name</label>
+			<input type="text" id="name" th:field="*{name}" />
+			</div>
+			
+			<div>
+		  	<label for="Type">Type</label>
+			<input type="text" id="type" th:field="*{type}" />
+			</div>
+			
+			<div>
+		  	<label for="Producer">Producer</label>
+			<input type="text" id="producer" th:field="*{producer}" />
+			</div>
+			
+			<div>
+			<label for="Description">Description</label>
+			<input type="text" id="description" th:field="*{description}" />
+			</div>
+			
+			<div>
+			<label for="price">Price</label>
+			<input type="number" id="price" th:field="*{price}" />
+			</div>
+			
+			
+			
+			<input type="submit" value="Save"></input>
+			
+		</form>
+	</div>
+</body>
+</html>

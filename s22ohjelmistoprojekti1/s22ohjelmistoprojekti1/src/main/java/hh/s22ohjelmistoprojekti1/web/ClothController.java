@@ -30,11 +30,10 @@ public class ClothController {
 		return "clothlist";
 	}
 	
-    @PreAuthorize("hasAuthority('ADMIN')")
+    // @PreAuthorize("hasAuthority('ADMIN')")
 	@GetMapping("add")
     public String addCloth(Model model){
     	model.addAttribute("cloth", new Cloth());
-    	model.addAttribute("categories",clothRepository.findAll());
         return "addcloth";
     }
 	
@@ -44,14 +43,14 @@ public class ClothController {
         return "redirect:clothlist";
     }
     
-    @PreAuthorize("hasAuthority('ADMIN')")
+    // @PreAuthorize("hasAuthority('ADMIN')")
     @GetMapping("/delete/{id}")
     public String deleteCloth(@PathVariable("id") Long id, Model model) {
     	clothRepository.deleteById(id);
         return "redirect:../clothlist";
     }
     
-    @PreAuthorize("hasAuthority('ADMIN')")
+    // @PreAuthorize("hasAuthority('ADMIN')")
     @GetMapping("/edit/{id}")
     public String editCloth(@PathVariable("id") Long id, Model model) {
     	model.addAttribute("cloth", clothRepository.findById(id));
