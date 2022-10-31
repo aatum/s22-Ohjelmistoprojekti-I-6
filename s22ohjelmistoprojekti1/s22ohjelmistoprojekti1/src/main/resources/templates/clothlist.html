@@ -20,11 +20,10 @@
 			<td th:text="${cloth.type}"></td>
 			<td th:text="${cloth.producer}"></td>
 			<td th:text="${cloth.price}"></td>
-			<td> <a th:href="@{/delete/{id}(id=${book.id})}">Delete</a></td>
- 			<td><a th:href="@{/edit/{id}(id=${book.id})}">Edit</a></td>
+			<td> <a th:href="@{/delete/{id}(id=${cloth.id})}">Delete</a></td>
+ 			<td><a th:href="@{/edit/{id}(id=${cloth.id})}">Edit</a></td>
 		</tr>
 	</table>
-	<a href="/addbook" class="btn btn-success">Add clothes</a>
 	<a href="/index">Home page</a>
 </body>
 </html>
