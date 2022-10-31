@@ -26,7 +26,7 @@ public class ClothController {
 
 	@GetMapping("clothlist")
 	public String showClothes(Model model) {
-		model.addAttribute("Books", clothRepository.findAll());
+		model.addAttribute("cloth", clothRepository.findAll());
 		return "clothlist";
 	}
 	
