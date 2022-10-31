@@ -18,9 +18,8 @@ public class Cloth {
 		
 	}
 	
-	public Cloth(Long id, String name, String type, String producer, String description, double price) {
+	public Cloth(String name, String type, String producer, String description, double price) {
 		super();
-		this.id = id;
 		this.name = name;
 		this.type = type;
 		this.producer = producer;
