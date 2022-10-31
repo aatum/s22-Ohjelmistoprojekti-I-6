@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import hh.s22ohjelmistoprojekti1.domain.Cloth;
+import hh.s22ohjelmistoprojekti1.domain.ClothRepository;
 
 
 
