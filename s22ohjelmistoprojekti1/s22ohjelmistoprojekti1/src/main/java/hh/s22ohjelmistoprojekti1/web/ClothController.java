@@ -21,7 +21,7 @@ public class ClothController {
 	
 	@GetMapping(value = {"/", "index"})
 	public String mainpage(Model model) {
-		return "mainpage";
+		return "index";
 	}
 
 	@GetMapping("clothlist")
