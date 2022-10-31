@@ -8,6 +8,7 @@ public class S22ohjelmistoprojekti1Application {
 
 	public static void main(String[] args) {
 		SpringApplication.run(S22ohjelmistoprojekti1Application.class, args);
+		// kommennti XD
 	}
 
 }
