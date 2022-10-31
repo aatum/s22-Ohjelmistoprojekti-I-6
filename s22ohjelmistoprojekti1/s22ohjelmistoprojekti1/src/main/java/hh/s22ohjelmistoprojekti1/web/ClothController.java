@@ -27,7 +27,7 @@ public class ClothController {
 	@GetMapping("clothlist")
 	public String showClothes(Model model) {
 		model.addAttribute("cloth", clothRepository.findAll());
-		return "clothlist";
+		return "index";
 	}
 	
     @PreAuthorize("hasAuthority('ADMIN')")
