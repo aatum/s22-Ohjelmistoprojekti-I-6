@@ -21,13 +21,13 @@ public class ClothController {
 	
 	@GetMapping(value = {"/", "index"})
 	public String mainpage(Model model) {
-		return "mainpage";
+		return "index";
 	}
 
 	@GetMapping("clothlist")
 	public String showClothes(Model model) {
 		model.addAttribute("cloth", clothRepository.findAll());
-		return "clothlist";
+		return "index";
 	}
 	
     @PreAuthorize("hasAuthority('ADMIN')")
