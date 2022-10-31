@@ -19,7 +19,7 @@ public class ClothController {
 	ClothRepository clothRepository;
 
 	@GetMapping("clothlist")
-	public String showclothers(Model model) {
+	public String showClothes(Model model) {
 		model.addAttribute("Books", clothRepository.findAll());
 		return "clothlist";
 	}
@@ -33,7 +33,7 @@ public class ClothController {
     }
 	
     @PostMapping("save")
-    public String save(Cloth cloth){
+    public String saveCloth(Cloth cloth){
         clothRepository.save(cloth);
         return "redirect:clothlist";
     }
