@@ -23,10 +23,10 @@ public class S22ohjelmistoprojekti1Application {
 	@Bean
 	public CommandLineRunner BookStuff(ClothRepository clothRepository) {
 		return (args) -> {
-			clothRepository.save(new Cloth("Sadetakki", "Takki", "Peten koiravaatteet", "Vedenpitävä ohut takki", 19.99));
-			clothRepository.save(new Cloth("Villatakki", "Takki", "Ruppa", "Villasta tehty lämmin takki", 39.99));
-			clothRepository.save(new Cloth("Bandana", "Huivi", "Koiravaate Oy", "Koiran kaulan ympärille huivi", 39.99));
-			clothRepository.save(new Cloth("Fleecetossut", "Kengät", "Koiravaate Oy", "Koiralle mukavat tossut ulos", 39.99));
+			clothRepository.save(new Cloth("Raincoat", "Coats", "Pete's dog clothing", "A waterproof coat ", 19.99));
+			clothRepository.save(new Cloth("Woolcoat", "Coats", "Ruppa", "A warm coat made of wool", 39.99));
+			clothRepository.save(new Cloth("Bandana", "Scarfs", "Dogclothes LLC", "A scarf for the dog", 10.99));
+			clothRepository.save(new Cloth("Fleeceboots ", "Shoes", "Dogclothes LLC", "Comfortable shoes for the dog to wear outside", 24.99));
 
 		};	
 	}
