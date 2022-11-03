@@ -2,17 +2,24 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
 <title>Clothes</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 </head>
 <body>
+<div class="col-md-4">
 	<h1>Clothes</h1>
-	<table>
+	<h2><a href="/index" class="btn btn-outline-primary">Home page</a><a href="/add" class="btn btn-outline-success">Add cloth</a>
+	</h2>
+	</div>
+	<table class="table table-striped">
 		<tr>
 			<th>Id</th>
 			<th>Name</th>
 			<th>Type</th>
 			<th>Producer</th>
 			<th>Price</th>
+			<th></th>
+			<th></th>
 		</tr>
 
 		<tr th:each="cloth : ${cloth}">
@@ -21,13 +28,9 @@
 			<td th:text="${cloth.type}"></td>
 			<td th:text="${cloth.producer}"></td>
 			<td th:text="${cloth.price}"></td>
-			<td> <a th:href="@{/delete/{id}(id=${cloth.id})}">Delete</a></td>
- 			<td><a th:href="@{/edit/{id}(id=${cloth.id})}">Edit</a></td>
+			<td> <a th:href="@{/delete/{id}(id=${cloth.id})}" class="btn btn-outline-danger">Delete</a></td>
+ 			<td><a th:href="@{/edit/{id}(id=${cloth.id})}" class="btn btn-outline-info">Edit</a></td>
 		</tr>
 	</table>
-		<div>
-			<a href="/add">Add cloth</a>
-		</div>
-	<a href="/index">Home page</a>
 </body>
 </html>
