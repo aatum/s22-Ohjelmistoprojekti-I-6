@@ -24,6 +24,11 @@ public class ClothController {
 		return "index";
 	}
 
+	@GetMapping("error")
+	public String errorpage(Model model) {
+		return "error";
+	}
+	
 	@GetMapping("clothlist")
 	public String showClothes(Model model) {
 		model.addAttribute("cloth", clothRepository.findAll());

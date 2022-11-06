@@ -4,6 +4,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.validation.constraints.NotBlank;
 
 @Entity
 public class Cloth {
@@ -11,7 +12,11 @@ public class Cloth {
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private Long id;
-	private String name, type, producer, description;
+	
+	@NotBlank(message = "Name and type are mandatory")
+	private String name, type;
+	
+	private String producer, description;
 	private double price;
 	
 	public Cloth() {
