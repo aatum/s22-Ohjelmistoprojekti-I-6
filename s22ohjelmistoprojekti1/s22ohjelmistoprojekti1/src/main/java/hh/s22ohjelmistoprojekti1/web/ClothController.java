@@ -80,9 +80,23 @@ public class ClothController {
     }
     
     // @PreAuthorize("hasAuthority('ADMIN')")
+    @GetMapping("/deleteproducer/{id}")
+    public String deleteProducer(@PathVariable("id") Long id, Model model) {
+    	producerRepository.deleteById(id);
+        return "redirect:../producerlist";
+    }
+    
+    // @PreAuthorize("hasAuthority('ADMIN')")
     @GetMapping("/edit/{id}")
     public String editCloth(@PathVariable("id") Long id, Model model) {
     	model.addAttribute("cloth", clothRepository.findById(id));
         return "editcloth";
     }   
+    
+    // @PreAuthorize("hasAuthority('ADMIN')")
+    @GetMapping("/editproducer/{id}")
+    public String editProducer(@PathVariable("id") Long id, Model model) {
+    	model.addAttribute("producer", producerRepository.findById(id));
+        return "editproducer";
+    }  
 }
