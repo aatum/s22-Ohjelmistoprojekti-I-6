@@ -8,7 +8,9 @@
 <body>
 <div class="col-md-4">
 	<h1>Clothes</h1>
-	<h2><a href="/index" class="btn btn-outline-primary">Home page</a><a href="/add" class="btn btn-outline-success">Add product</a>
+	<h2><a href="/index" class="btn btn-outline-primary">Home page</a>
+	<a href="/add" class="btn btn-outline-success">Add product</a>
+	<a href="/producerlist" class="btn btn-outline-primary">Producerlist</a>
 	</h2>
 	</div>
 	<table class="table table-striped">
@@ -26,7 +28,7 @@
 			<td th:text="${cloth.id}"></td>
 			<td th:text="${cloth.name}"></td>
 			<td th:text="${cloth.type}"></td>
-			<td th:text="${cloth.producer}"></td>
+			<td th:text="${cloth.producer.name}"></td>
 			<td th:text="${cloth.price}"></td>
 			<td> <a th:href="@{/delete/{id}(id=${cloth.id})}" class="btn btn-outline-danger">Delete</a></td>
  			<td><a th:href="@{/edit/{id}(id=${cloth.id})}" class="btn btn-outline-info">Edit</a></td>

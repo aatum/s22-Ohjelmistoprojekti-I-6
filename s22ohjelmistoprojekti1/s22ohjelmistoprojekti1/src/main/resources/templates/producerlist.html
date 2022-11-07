@@ -8,7 +8,7 @@
 <body>
 <div class="col-md-4">
 	<h1>Producer</h1>
-	<h2><a href="/index" class="btn btn-outline-primary">Home page</a><a href="/add" class="btn btn-outline-success">Add product</a>
+	<h2><a href="/index" class="btn btn-outline-primary">Home page</a><a href="/add" class="btn btn-outline-success">Add producer</a>
 	</h2>
 	</div>
 	<table class="table table-striped">
@@ -18,10 +18,10 @@
 		</tr>
 
 		<tr th:each="producer : ${producer}">
-			<td th:text="${producer.id}"></td>
+			<td th:text="${producer.producerid}"></td>
 			<td th:text="${producer.name}"></td>
-			<td> <a th:href="@{/delete/{id}(id=${producer.id})}" class="btn btn-outline-danger">Delete</a></td>
- 			<td><a th:href="@{/edit/{id}(id=${producer.id})}" class="btn btn-outline-info">Edit</a></td>
+			<td> <a th:href="@{/delete/{id}(id=${producer.producerid})}" class="btn btn-outline-danger">Delete</a></td>
+ 			<td><a th:href="@{/edit/{id}(id=${producer.producerid})}" class="btn btn-outline-info">Edit</a></td>
 		</tr>
 	</table>
 </body>

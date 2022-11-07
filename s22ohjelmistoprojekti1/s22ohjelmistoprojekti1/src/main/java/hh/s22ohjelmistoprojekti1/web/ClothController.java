@@ -49,6 +49,7 @@ public class ClothController {
 	@GetMapping("add")
     public String addCloth(Model model){
     	model.addAttribute("cloth", new Cloth());
+    	model.addAttribute("producers", producerRepository.findAll());
         return "addcloth";
     }
 	
