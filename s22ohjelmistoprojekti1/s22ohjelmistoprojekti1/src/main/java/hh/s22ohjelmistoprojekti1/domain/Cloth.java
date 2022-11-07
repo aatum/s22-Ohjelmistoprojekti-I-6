@@ -4,6 +4,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.validation.constraints.NotBlank;
 
 @Entity
@@ -16,14 +18,17 @@ public class Cloth {
 	@NotBlank(message = "Name and type are mandatory")
 	private String name, type;
 	
-	private String producer, description;
+	@ManyToOne
+	@JoinColumn(name = "producerid")
+	private Producer producer;
+	private String description;
 	private double price;
 	
 	public Cloth() {
 		
 	}
 	
-	public Cloth(String name, String type, String producer, String description, double price) {
+	public Cloth(String name, String type, Producer producer, String description, double price) {
 		super();
 		this.name = name;
 		this.type = type;
@@ -50,10 +55,10 @@ public class Cloth {
 	public void setType(String type) {
 		this.type = type;
 	}
-	public String getProducer() {
+	public Producer getProducer() {
 		return producer;
 	}
-	public void setProducer(String producer) {
+	public void setProducer(Producer producer) {
 		this.producer = producer;
 	}
 	public String getDescription() {
