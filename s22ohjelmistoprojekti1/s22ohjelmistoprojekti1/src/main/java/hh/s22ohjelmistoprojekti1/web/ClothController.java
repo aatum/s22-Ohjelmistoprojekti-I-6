@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 
 import hh.s22ohjelmistoprojekti1.domain.Cloth;
 import hh.s22ohjelmistoprojekti1.domain.ClothRepository;
+import hh.s22ohjelmistoprojekti1.domain.ProducerRepository;
 
 
 
@@ -18,6 +19,9 @@ public class ClothController {
 	
 	@Autowired
 	ClothRepository clothRepository;
+	
+	@Autowired
+	ProducerRepository producerRepository;
 	
 	@GetMapping(value = {"/", "index"})
 	public String mainpage(Model model) {
@@ -33,6 +37,12 @@ public class ClothController {
 	public String showClothes(Model model) {
 		model.addAttribute("cloth", clothRepository.findAll());
 		return "clothlist";
+	}
+	
+	@GetMapping("producerlist")
+	public String showProducers(Model model) {
+		model.addAttribute("producer", producerRepository.findAll());
+		return "producerlist";
 	}
 	
     // @PreAuthorize("hasAuthority('ADMIN')")
