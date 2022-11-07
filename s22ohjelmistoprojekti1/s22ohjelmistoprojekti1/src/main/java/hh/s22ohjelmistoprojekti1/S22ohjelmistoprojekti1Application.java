@@ -30,6 +30,10 @@ public class S22ohjelmistoprojekti1Application {
 		return (args) -> {
 			Producer producer1 = new Producer("producer1");
 			producerRepository.save(producer1);
+			Producer producer2 = new Producer("producer2");
+			producerRepository.save(producer2);
+			Producer producer3 = new Producer("producer3");
+			producerRepository.save(producer3);
 			clothRepository.save(new Cloth("Raincoat", "Coats", producer1, "A waterproof coat ", 19.99));
 
 		};	

@@ -24,8 +24,10 @@
 			</div>
 			
 			<div>
-		  	<label for="Producer">Producer</label>
-			<input type="text" id="producer" th:field="*{producer}" />
+			<label for="producerlist">Producer</label>
+			<select id="producerlist" th:field ="*{producer}" class = "form-control">
+				<option th:each="producer: ${producers}" th:value="${producer.producerid}" th:text="${producer.name}"></option>
+			</select>
 			</div>
 			
 			<div>
