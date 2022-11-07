@@ -1,0 +1,26 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Add producer</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+
+
+<body>
+	<h1>Add producer</h1>
+	<div>
+	
+		<form th:object="${producer}" th:action="@{saveproducer}" action="#" method="post">
+		
+			<div>
+		  	<label for="Name">Name</label>
+			<input type="text" id="name" th:field="*{name}" />
+			</div>
+				
+			<input type="submit" value="Save" class="btn btn-success"></input>
+			
+		</form>
+	</div>
+</body>
+</html>

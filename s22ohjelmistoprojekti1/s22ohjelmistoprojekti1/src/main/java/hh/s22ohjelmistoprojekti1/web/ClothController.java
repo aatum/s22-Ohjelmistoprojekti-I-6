@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 
 import hh.s22ohjelmistoprojekti1.domain.Cloth;
 import hh.s22ohjelmistoprojekti1.domain.ClothRepository;
+import hh.s22ohjelmistoprojekti1.domain.Producer;
 import hh.s22ohjelmistoprojekti1.domain.ProducerRepository;
 
 
@@ -53,10 +54,22 @@ public class ClothController {
         return "addcloth";
     }
 	
+	@GetMapping("addproducer")
+	public String addProducer(Model model) {
+		model.addAttribute("producer", new Producer());
+		return "addproducer";
+	}
+	
     @PostMapping("save")
     public String saveCloth(Cloth cloth){
         clothRepository.save(cloth);
         return "redirect:clothlist";
+    }
+    
+    @PostMapping("saveproducer")
+    public String saveProducer(Producer producer){
+        producerRepository.save(producer);
+        return "redirect:producerlist";
     }
     
     // @PreAuthorize("hasAuthority('ADMIN')")
