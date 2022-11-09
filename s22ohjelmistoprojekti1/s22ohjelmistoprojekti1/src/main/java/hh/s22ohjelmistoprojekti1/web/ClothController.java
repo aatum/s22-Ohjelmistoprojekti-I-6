@@ -1,5 +1,8 @@
 package hh.s22ohjelmistoprojekti1.web;
 
+import java.util.List;
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
@@ -98,5 +101,12 @@ public class ClothController {
     public String editProducer(@PathVariable("id") Long id, Model model) {
     	model.addAttribute("producer", producerRepository.findById(id));
         return "editproducer";
-    }  
+    } 
+    
+    // @PreAuthorize("hasAuthority('ADMIN')")
+    @GetMapping("/listbyproducer/{id}")
+    public String listbyProducer(@PathVariable("id") Long id, Model model) {
+    	model.addAttribute("producer", producerRepository.findById(id));
+        return "listbyproducer";
+    } 
 }

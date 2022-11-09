@@ -28,7 +28,7 @@
 			<td th:text="${cloth.id}"></td>
 			<td th:text="${cloth.name}"></td>
 			<td th:text="${cloth.type}"></td>
-			<td th:text="${cloth.producer.name}"></td>
+			<td> <a th:text="${cloth.producer.name}" th:href="@{/listbyproducer/{id}(id=${cloth.producer.producerid})}"></a></td>
 			<td th:text="${cloth.price}"></td>
 			<td> <a th:href="@{/delete/{id}(id=${cloth.id})}" class="btn btn-outline-danger">Delete</a></td>
  			<td><a th:href="@{/edit/{id}(id=${cloth.id})}" class="btn btn-outline-info">Edit</a></td>
