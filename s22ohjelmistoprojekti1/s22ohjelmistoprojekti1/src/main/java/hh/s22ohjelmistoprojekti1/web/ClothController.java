@@ -90,6 +90,7 @@ public class ClothController {
     @GetMapping("/edit/{id}")
     public String editCloth(@PathVariable("id") Long id, Model model) {
     	model.addAttribute("cloth", clothRepository.findById(id));
+    	model.addAttribute("producers", producerRepository.findAll());
         return "editcloth";
     }   
     
