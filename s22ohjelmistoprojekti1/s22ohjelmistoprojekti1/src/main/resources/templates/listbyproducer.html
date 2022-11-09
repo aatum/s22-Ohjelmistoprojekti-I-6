@@ -1,32 +1,21 @@
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-<title>Producers</title>
+<title>List by producer</title>
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 </head>
 <body>
-<div class="col-md-4">
-	<h1>Producer</h1>
-	<h2><a href="/index" class="btn btn-outline-primary">Home page</a>
-	<a href="/addproducer" class="btn btn-outline-success">Add producer</a>
-	<a href="/clothlist" class="btn btn-info">Clothes</a>
-	</h2>
+	<h1>List by producer</h1>
+	
+	<div th:object="${producer}">
+			
+			<div>
+		  	<label for="Name">Name</label>
+			<input type="text" id="name" th:field="*{name}" />
+			</div>
+			
 	</div>
-	<table class="table table-striped">
-		<tr>
-			<th>Id</th>
-			<th>Name</th>
-			<th> </th>
-			<th> </th>
-		</tr>
 
-		<tr th:each="producer : ${producer}">
-			<td th:text="${producer.producerid}"></td>
-			<td th:text="${producer.name}"></td>
-			<td> <a th:href="@{/deleteproducer/{id}(id=${producer.producerid})}" class="btn btn-outline-danger">Delete</a></td>
- 			<td><a th:href="@{/editproducer/{id}(id=${producer.producerid})}" class="btn btn-outline-info">Edit</a></td>
-		</tr>
-	</table>
 </body>
 </html>
