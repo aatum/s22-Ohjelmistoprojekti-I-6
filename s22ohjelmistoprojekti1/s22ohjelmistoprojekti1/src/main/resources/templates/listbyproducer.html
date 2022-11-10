@@ -8,13 +8,32 @@
 <body>
 	<h1>List by producer</h1>
 	
+	<a href="/index" class="btn btn-outline-primary">Home page</a>
+	
 	<div th:object="${producer}">
+	
+	<table class="table table-striped">
+		<tr>
+			<th>Id</th>
+			<th>Name</th>
+			<th>Type</th>
+			<th>Producer</th>
+			<th>Price</th>
+			<th></th>
+			<th></th>
+		</tr>
+
+		<tr th:each="cloth : ${cloth}">
+		
+			<td th:if="${cloth.producer.producerid == 1}" th:text="${cloth.id}"></td>
+			<td th:if="${cloth.producer.producerid == 1}" th:text="${cloth.name}"></td>
+			<td th:if="${cloth.producer.producerid == 1}" th:text="${cloth.type}"></td>
+			<td th:if="${cloth.producer.producerid == 1}" th:text="${cloth.producer.name}"></td>
+			<td th:if="${cloth.producer.producerid == 1}" th:text="${cloth.price}"></td>
 			
-			<div>
-		  	<label for="Name">Name</label>
-			<input type="text" id="name" th:field="*{name}" />
-			</div>
 			
+		</tr>
+	</table>
 	</div>
 
 </body>

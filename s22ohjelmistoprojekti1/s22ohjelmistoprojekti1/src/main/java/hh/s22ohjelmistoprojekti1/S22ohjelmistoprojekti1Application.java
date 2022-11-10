@@ -35,7 +35,7 @@ public class S22ohjelmistoprojekti1Application {
 			Producer producer3 = new Producer("producer3");
 			producerRepository.save(producer3);
 			clothRepository.save(new Cloth("Raincoat", "Coats", producer1, "A waterproof coat ", 19.99));
-			clothRepository.save(new Cloth("Raincoat", "Coats", producer2, "A waterproof coat ", 19.99));
+			clothRepository.save(new Cloth("Bandana", "Coats", producer2, "A waterproof coat ", 19.99));
 			clothRepository.save(new Cloth("Raincoat", "Coats", producer3, "A waterproof coat ", 19.99));
 
 		};	

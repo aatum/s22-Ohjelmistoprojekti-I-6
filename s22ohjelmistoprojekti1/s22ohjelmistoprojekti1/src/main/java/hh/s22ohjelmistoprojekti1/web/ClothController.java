@@ -108,6 +108,7 @@ public class ClothController {
 	// @PreAuthorize("hasAuthority('ADMIN')")
 	@GetMapping("/listbyproducer/{id}")
 	public String listbyProducer(@PathVariable("id") Long id, Model model) {
+		model.addAttribute("cloth", clothRepository.findAll());
 		model.addAttribute("producer", producerRepository.findById(id));
 		return "listbyproducer";
 	}
