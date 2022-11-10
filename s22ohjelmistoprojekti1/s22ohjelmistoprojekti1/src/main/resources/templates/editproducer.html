@@ -7,8 +7,10 @@
 </head>
 
 
-<body>
+<body class="col-md-4">
 	<h1>Edit producer</h1>
+	<div th:replace="headerfragments.html">
+	</div>
 	<div>
 		<form th:object="${producer}" th:action="@{/saveproducer}" action="#" method="post">
 			<input type="hidden" id="id" th:field="*{producerid}" />

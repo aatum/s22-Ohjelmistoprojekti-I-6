@@ -2,13 +2,15 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-    <title>Clothes</title>
+    <title>Edit product</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 </head>
 
 
-<body>
-	<h1>Edit cloth</h1>
+<body class="col-md-4">
+	<h1>Edit product</h1>
+	<div th:replace="headerfragments.html">
+	</div>
 	<div>
 		<form th:object="${cloth}" th:action="@{/save}" action="#" method="post">
 			<input type="hidden" id="id" th:field="*{id}" />
@@ -24,9 +26,9 @@
 			</div>
 			
 
-			<div style= "width: 150px">
+			<div>
 			<label for="producerlist">Producer</label>
-			<select id="producerlist" th:field ="*{producer}" class = "form-control">
+			<select id="producerlist" th:field ="*{producer}">
 				<option th:each="producer: ${producers}" th:value="${producer.producerid}" th:text="${producer.name}"></option>
 			</select>
 			</div>

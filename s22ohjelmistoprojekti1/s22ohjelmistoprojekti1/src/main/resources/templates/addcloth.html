@@ -7,10 +7,11 @@
 </head>
 
 
-<body>
-	<h1 class="col-md-4">Add Product</h1>
-	<div class="col-md-4">
-	
+<body class="col-md-4">
+	<div>
+	<h1>Add product</h1>
+	<div th:replace="headerfragments.html">
+	</div>
 		<form th:object="${cloth}" th:action="@{save}" action="#" method="post">
 		
 			<div>
@@ -23,9 +24,9 @@
 			<input type="text" id="type" th:field="*{type}" />
 			</div>
 			
-			<div style= "width: 150px">
+			<div>
 			<label for="producerlist">Producer</label>
-			<select id="producerlist" th:field ="*{producer}" class = "form-control">
+			<select id="producerlist" th:field ="*{producer}">
 				<option th:each="producer: ${producers}" th:value="${producer.producerid}" th:text="${producer.name}"></option>
 			</select>
 			</div>
