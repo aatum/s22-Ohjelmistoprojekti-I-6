@@ -19,11 +19,12 @@ import hh.s22ohjelmistoprojekti1.domain.Producer;
 public class ClothRepositoryTest {
 
 	@Autowired
-	private ClothRepository repository;
+	private ClothRepository clothRepository;
 
 	@Test // testing findByName-method from ClothRepository
 	public void findByNameShouldReturnProductName() {
-		List<Cloth> clothes = repository.findByName("Raincoat");
+
+		List<Cloth> clothes = clothRepository.findByName("Raincoat");
 
 		assertThat(clothes).hasSize(1);
 		assertThat(clothes.get(0).getProducer().getName()).isEqualTo("producer1");
@@ -32,7 +33,12 @@ public class ClothRepositoryTest {
 	@Test // testing save-method from ClothRepository
 	public void createNewCloth() {
 		Cloth cloth = new Cloth("vaate", "vaate", new Producer("valmistaja"), "kuvaus", 10.0);
-		repository.save(cloth);
+		clothRepository.save(cloth);
 		assertThat(cloth.getId()).isNotNull();
+
+		List<Cloth> clothes = clothRepository.findByName("Bandana");
+
+		assertThat(clothes).hasSize(1);
+		assertThat(clothes.get(0).getProducer()).isEqualTo("producer4");
 	}
 }
