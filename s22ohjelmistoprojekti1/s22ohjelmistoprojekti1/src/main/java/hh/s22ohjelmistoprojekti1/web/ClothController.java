@@ -111,14 +111,14 @@ public class ClothController {
 
 	// get id with REST
 	@RequestMapping(value = "/cloths/{id}", method = RequestMethod.GET)
-	public @ResponseBody Optional<Cloth> findSongRest(@PathVariable("id") Long clothId) {
-		return clothRepository.findById(clothId);
+	public @ResponseBody Optional<Cloth> findSongRest(@PathVariable("id") Long id) {
+		return clothRepository.findById(id);
 	}
 
 	// delete with REST
 	@RequestMapping(value = "/delete/{id}", method = RequestMethod.DELETE)
-	public @ResponseBody Optional<Cloth> deleteSongRest(@PathVariable("id") Long clothId) {
-		return clothRepository.findById(clothId);
+	public @ResponseBody Optional<Cloth> deleteSongRest(@PathVariable("id") Long id) {
+		return clothRepository.findById(id);
 
 	}
 
