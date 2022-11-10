@@ -6,6 +6,7 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -125,10 +126,9 @@ public class ClothController {
 	}
 
 	// delete with REST
-	@RequestMapping(value = "/delete/{id}", method = RequestMethod.DELETE)
-
-	public @ResponseBody Optional<Cloth> deleteClothRest(@PathVariable("id") Long clothId) {
-		return clothRepository.findById(clothId);
+	@DeleteMapping("/delete/{id}")
+	void deleteCloth(@PathVariable("id") Long clothId) {
+		clothRepository.deleteById(clothId);
 	}
 	
 
