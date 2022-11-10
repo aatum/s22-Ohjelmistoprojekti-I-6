@@ -40,5 +40,6 @@ public class ClothRepositoryTest {
 
 		assertThat(clothes).hasSize(1);
 		assertThat(clothes.get(0).getProducer()).isEqualTo("producer4");
+
 	}
 }
