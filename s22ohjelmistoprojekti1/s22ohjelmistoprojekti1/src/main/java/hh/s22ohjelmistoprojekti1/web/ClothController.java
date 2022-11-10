@@ -63,53 +63,53 @@ public class ClothController {
 		return "addproducer";
 	}
 
-    @PostMapping("save")
-    public String saveCloth(Cloth cloth){
-        clothRepository.save(cloth);
-        return "redirect:clothlist";
-    }
-    
-    @PostMapping("saveproducer")
-    public String saveProducer(Producer producer){
-        producerRepository.save(producer);
-        return "redirect:producerlist";
-    }
-    
-    // @PreAuthorize("hasAuthority('ADMIN')")
-    @GetMapping("/delete/{id}")
-    public String deleteCloth(@PathVariable("id") Long id, Model model) {
-    	clothRepository.deleteById(id);
-        return "redirect:../clothlist";
-    }
-    
-    // @PreAuthorize("hasAuthority('ADMIN')")
-    @GetMapping("/deleteproducer/{id}")
-    public String deleteProducer(@PathVariable("id") Long id, Model model) {
-    	producerRepository.deleteById(id);
-        return "redirect:../producerlist";
-    }
-    
-    // @PreAuthorize("hasAuthority('ADMIN')")
-    @GetMapping("/edit/{id}")
-    public String editCloth(@PathVariable("id") Long id, Model model) {
-    	model.addAttribute("cloth", clothRepository.findById(id));
-    	model.addAttribute("producers", producerRepository.findAll());
-        return "editcloth";
-    }   
-    
-    // @PreAuthorize("hasAuthority('ADMIN')")
-    @GetMapping("/editproducer/{id}")
-    public String editProducer(@PathVariable("id") Long id, Model model) {
-    	model.addAttribute("producer", producerRepository.findById(id));
-        return "editproducer";
-    } 
-    
-    // @PreAuthorize("hasAuthority('ADMIN')")
-    @GetMapping("/listbyproducer/{id}")
-    public String listbyProducer(@PathVariable("id") Long id, Model model) {
-    	model.addAttribute("producer", producerRepository.findById(id));
-        return "listbyproducer";
-    } 
+	@PostMapping("save")
+	public String saveCloth(Cloth cloth) {
+		clothRepository.save(cloth);
+		return "redirect:clothlist";
+	}
+
+	@PostMapping("saveproducer")
+	public String saveProducer(Producer producer) {
+		producerRepository.save(producer);
+		return "redirect:producerlist";
+	}
+
+	// @PreAuthorize("hasAuthority('ADMIN')")
+	@GetMapping("/delete/{id}")
+	public String deleteCloth(@PathVariable("id") Long id, Model model) {
+		clothRepository.deleteById(id);
+		return "redirect:../clothlist";
+	}
+
+	// @PreAuthorize("hasAuthority('ADMIN')")
+	@GetMapping("/deleteproducer/{id}")
+	public String deleteProducer(@PathVariable("id") Long id, Model model) {
+		producerRepository.deleteById(id);
+		return "redirect:../producerlist";
+	}
+
+	// @PreAuthorize("hasAuthority('ADMIN')")
+	@GetMapping("/edit/{id}")
+	public String editCloth(@PathVariable("id") Long id, Model model) {
+		model.addAttribute("cloth", clothRepository.findById(id));
+		model.addAttribute("producers", producerRepository.findAll());
+		return "editcloth";
+	}
+
+	// @PreAuthorize("hasAuthority('ADMIN')")
+	@GetMapping("/editproducer/{id}")
+	public String editProducer(@PathVariable("id") Long id, Model model) {
+		model.addAttribute("producer", producerRepository.findById(id));
+		return "editproducer";
+	}
+
+	// @PreAuthorize("hasAuthority('ADMIN')")
+	@GetMapping("/listbyproducer/{id}")
+	public String listbyProducer(@PathVariable("id") Long id, Model model) {
+		model.addAttribute("producer", producerRepository.findById(id));
+		return "listbyproducer";
+	}
 
 	// get all clothes with REST
 	@RequestMapping(value = "/cloths", method = RequestMethod.GET)
@@ -118,18 +118,16 @@ public class ClothController {
 	}
 
 	// get id with REST
-	@RequestMapping(value = "/cloths/{id}", method = RequestMethod.GET)
+	@RequestMapping(value = "api/cloths/{id}", method = RequestMethod.GET)
 
 	public @ResponseBody Optional<Cloth> findClothRest(@PathVariable("id") Long clothId) {
 		return clothRepository.findById(clothId);
 	}
 
-	// delete with REST
-	@RequestMapping(value = "/delete/{id}", method = RequestMethod.DELETE)
-
-	public @ResponseBody Optional<Cloth> deleteClothRest(@PathVariable("id") Long clothId) {
-		return clothRepository.findById(clothId);
+	// delete with REST - ei toimi?
+	@RequestMapping(value = "api/delete/{id}", method = RequestMethod.DELETE)
+	public @ResponseBody Optional<Cloth> deleteClothRest(@PathVariable("id") Long id) {
+		return clothRepository.findById(id);
 	}
-	
 
 }
