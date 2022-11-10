@@ -23,7 +23,7 @@
 			<input type="text" id="type" th:field="*{type}" />
 			</div>
 			
-			<div>
+			<div style= "width: 150px">
 			<label for="producerlist">Producer</label>
 			<select id="producerlist" th:field ="*{producer}" class = "form-control">
 				<option th:each="producer: ${producers}" th:value="${producer.producerid}" th:text="${producer.name}"></option>
