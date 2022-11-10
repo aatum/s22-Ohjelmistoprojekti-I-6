@@ -45,7 +45,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
         PasswordEncoder passwordEncoder = PasswordEncoderFactories.createDelegatingPasswordEncoder();
 
-        UserDetails user = User
+        // User "user" password "user"
+        UserDetails user = User 
         		.withUsername("user")
         		.password(passwordEncoder.encode("user"))
         		.roles("USER")
@@ -53,6 +54,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
         users.add(user);
 
+        // User "admin" password "admin"
         user = User
         		.withUsername("admin")
         		.password(passwordEncoder.encode("admin"))

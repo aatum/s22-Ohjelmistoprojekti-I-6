@@ -15,10 +15,10 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 public class Producer {
 
 	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long producerid;
 	private String name;
-	
+
 	@JsonIgnore
 	@OneToMany(cascade = CascadeType.ALL, mappedBy = "producer")
 	private List<Cloth> clothes;
@@ -27,9 +27,9 @@ public class Producer {
 		super();
 		this.name = name;
 	}
-	
+
 	public Producer() {
-		
+
 	}
 
 	public Long getProducerid() {
@@ -55,6 +55,5 @@ public class Producer {
 	public void setClothes(List<Cloth> clothes) {
 		this.clothes = clothes;
 	}
-	
-	
+
 }
