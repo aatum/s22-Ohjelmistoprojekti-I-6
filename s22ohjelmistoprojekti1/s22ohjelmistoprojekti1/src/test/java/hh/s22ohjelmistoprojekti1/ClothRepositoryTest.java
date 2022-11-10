@@ -19,13 +19,13 @@ import hh.s22ohjelmistoprojekti1.domain.ClothRepository;
 public class ClothRepositoryTest {
 
 	@Autowired
-	private ClothRepository repository;
+	private ClothRepository clothRepository;
 
 	@Test // testing findByName-method from ClothRepository
 	public void findByNameShouldReturnProductName() {
-		List<Cloth> clothes = repository.findByName("Bandana");
+		List<Cloth> clothes = clothRepository.findByName("Bandana");
 
 		assertThat(clothes).hasSize(1);
-		assertThat(clothes.get(0).getProducer()).isEqualTo("Dogclothes LLC");
+		assertThat(clothes.get(0).getProducer()).isEqualTo("producer4");
 	}
 }
