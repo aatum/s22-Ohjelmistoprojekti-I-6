@@ -12,10 +12,10 @@ import org.springframework.test.context.junit.jupiter.SpringExtension;
 
 import hh.s22ohjelmistoprojekti1.domain.Cloth;
 import hh.s22ohjelmistoprojekti1.domain.ClothRepository;
+import hh.s22ohjelmistoprojekti1.domain.Producer;
 
 @ExtendWith(SpringExtension.class)
 @DataJpaTest
-
 public class ClothRepositoryTest {
 
 	@Autowired
@@ -23,9 +23,16 @@ public class ClothRepositoryTest {
 
 	@Test // testing findByName-method from ClothRepository
 	public void findByNameShouldReturnProductName() {
-		List<Cloth> clothes = repository.findByName("Bandana");
+		List<Cloth> clothes = repository.findByName("Raincoat");
 
 		assertThat(clothes).hasSize(1);
-		assertThat(clothes.get(0).getProducer()).isEqualTo("Dogclothes LLC");
+		assertThat(clothes.get(0).getProducer().getName()).isEqualTo("producer1");
+	}
+	
+	@Test // testing save-method from ClothRepository
+	public void createNewCloth() {
+		Cloth cloth = new Cloth("vaate", "vaate", new Producer("valmistaja"), "kuvaus", 10.0);
+		repository.save(cloth);
+		assertThat(cloth.getId()).isNotNull();
 	}
 }
