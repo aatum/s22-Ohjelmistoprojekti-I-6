@@ -1,0 +1,13 @@
+<div>
+	<a href="/index" class="btn btn-outline-success">Home page</a>
+	<a href="/clothlist" class="btn btn-outline-primary">Clothes</a>
+	<a href="/add" class="btn btn-outline-success">Add product</a>
+	<a href="/producerlist" class="btn btn-outline-primary">Producerlist</a>
+	<a href="/addproducer" class="btn btn-outline-success">Add producer</a>
+	
+	<div style="padding:20px 0">
+		<form th:action="@{/logout}" method="post">
+			<input type="submit" value="Sign Out" class="btn btn-sm btn-danger"/>
+		</form>
+	</div>
+</div>

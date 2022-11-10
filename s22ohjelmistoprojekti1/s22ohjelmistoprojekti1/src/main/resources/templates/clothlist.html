@@ -6,17 +6,12 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 </head>
 <body>
+
 <div class="col-md-4">
 	<h1>Clothes</h1>
-	<h2><a href="/index" class="btn btn-outline-primary">Home page</a>
-	<a href="/add" class="btn btn-outline-success">Add product</a>
-	<a href="/producerlist" class="btn btn-outline-primary">Producerlist</a>
-	<div class="col-md-4" style="padding:20px 0">
-		<form th:action="@{/logout}" method="post">
-			<input type="submit" value="Sign Out" class="btn btn-sm btn-danger"/>
-		</form>
+	<div th:replace="headerfragments.html">
 	</div>
-	</h2>
+	
 	</div>
 	<table class="table table-striped">
 		<tr>
