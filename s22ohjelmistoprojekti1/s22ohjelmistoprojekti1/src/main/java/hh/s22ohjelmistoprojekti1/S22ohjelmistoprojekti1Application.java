@@ -28,17 +28,18 @@ public class S22ohjelmistoprojekti1Application {
 	@Bean
 	public CommandLineRunner BookStuff(ClothRepository clothRepository, ProducerRepository producerRepository) {
 		return (args) -> {
-			Producer producer1 = new Producer("producer1");
+			Producer producer1 = new Producer("Koiravaatteet OY");
 			producerRepository.save(producer1);
-			Producer producer2 = new Producer("producer2");
+			Producer producer2 = new Producer("HauHau");
 			producerRepository.save(producer2);
-			Producer producer3 = new Producer("producer3");
+			Producer producer3 = new Producer("WOOFWOOF");
 			producerRepository.save(producer3);
 			clothRepository.save(new Cloth("Raincoat", "Coats", producer1, "A waterproof coat ", 19.99));
-			clothRepository.save(new Cloth("Bandana", "Coats", producer2, "A waterproof coat ", 19.99));
-			clothRepository.save(new Cloth("Raincoat", "Coats", producer3, "A waterproof coat ", 19.99));
-			clothRepository.save(new Cloth("Raincoat2", "Coats", producer2, "A waterproof coat ", 19.99));
-			clothRepository.save(new Cloth("Raincoat3", "Coats", producer3, "A waterproof coat ", 19.99));
+			clothRepository.save(new Cloth("Woolcoat", "Coats", producer2, "A waterproof coat ", 19.99));
+			clothRepository.save(new Cloth("Scarf", "Accessories", producer2, "A waterproof coat ", 19.99));
+			clothRepository.save(new Cloth("Shoes?", "Shoes", producer3, "A waterproof coat ", 19.99));
+			clothRepository.save(new Cloth("Bowtie", "Accessories", producer3, "A waterproof coat ", 19.99));
+			clothRepository.save(new Cloth("Necklace", "Accessories", producer3, "A waterproof coat ", 19.99));
 
 		};	
 	}

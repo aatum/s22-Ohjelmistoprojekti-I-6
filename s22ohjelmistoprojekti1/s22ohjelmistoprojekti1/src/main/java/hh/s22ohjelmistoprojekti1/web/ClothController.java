@@ -109,7 +109,7 @@ public class ClothController {
 	@GetMapping("/listbyproducer/{id}")
 	public String listbyProducer(@PathVariable("id") Long id, Model model) {
 		model.addAttribute("cloth", clothRepository.findAll());
-		model.addAttribute("producer", producerRepository.findById(id));
+		producerRepository.findById(id).ifPresent(o -> model.addAttribute("producer", o));
 		return "listbyproducer";
 	}
 

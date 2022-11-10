@@ -55,5 +55,10 @@ public class Producer {
 	public void setClothes(List<Cloth> clothes) {
 		this.clothes = clothes;
 	}
+	
+	@Override
+	public String toString() {
+		return "Producer [producerid=" + producerid + ", name=" + name + ", clothes=" + clothes + "]";
+	}
 
 }
