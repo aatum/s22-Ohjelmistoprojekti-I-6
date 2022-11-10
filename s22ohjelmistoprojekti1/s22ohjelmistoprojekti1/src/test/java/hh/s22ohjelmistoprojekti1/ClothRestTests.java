@@ -25,7 +25,7 @@ public class ClothRestTests {
 
 	@Test
 	public void apiStatusIsOk() throws Exception {
-		this.mockMvc.perform(get("/rest/cars")).andExpect(status().isOk());
+		this.mockMvc.perform(get("/rest/clothes")).andExpect(status().isOk());
 	}
 
 }
