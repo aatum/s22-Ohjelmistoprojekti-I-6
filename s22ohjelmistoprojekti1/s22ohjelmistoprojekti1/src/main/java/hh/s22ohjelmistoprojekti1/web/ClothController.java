@@ -126,6 +126,7 @@ public class ClothController {
 		return clothRepository.findById(clothId);
 	}
 
+
 	// delete with REST
 	@DeleteMapping("/delete/{id}")
 	void deleteCloth(@PathVariable Long clothId) {
