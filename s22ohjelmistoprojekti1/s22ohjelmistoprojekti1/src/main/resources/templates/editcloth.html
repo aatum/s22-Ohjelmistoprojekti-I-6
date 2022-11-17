@@ -6,11 +6,9 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 </head>
 
-
-<body class="col-md-4">
+<div th:replace="headerfragments.html"></div>
+<body>
 	<h1>Edit product</h1>
-	<div th:replace="headerfragments.html">
-	</div>
 	<div>
 		<form th:object="${cloth}" th:action="@{/save}" action="#" method="post">
 			<input type="hidden" id="id" th:field="*{id}" />

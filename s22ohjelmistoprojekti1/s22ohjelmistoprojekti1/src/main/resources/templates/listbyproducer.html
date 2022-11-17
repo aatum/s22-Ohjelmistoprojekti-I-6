@@ -6,13 +6,10 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 </head>
 <body>
-
-<div class="col-md-4">
+	<div th:replace="headerfragments.html"></div>
 	<h1 th:text="${producer.name}">List by producer</h1>
-	<div th:replace="headerfragments.html">
-	</div>
+
 	<a href="/clothlist" class="btn btn-info">Back</a>
-</div>
 	
 	<table class="table table-striped">
 		<tr>

@@ -6,11 +6,9 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 </head>
 
-
-<body class="col-md-4">
+<div th:replace="headerfragments.html"></div>
+<body>
 	<h1>Add producer</h1>
-	<div th:replace="headerfragments.html">
-	</div>
 	<div>
 	
 		<form th:object="${producer}" th:action="@{saveproducer}" action="#" method="post">

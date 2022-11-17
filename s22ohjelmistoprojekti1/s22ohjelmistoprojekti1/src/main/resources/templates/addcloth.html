@@ -7,11 +7,10 @@
 </head>
 
 
-<body class="col-md-4">
+<body>
+	<div th:replace="headerfragments.html"></div>
 	<div>
 	<h1>Add product</h1>
-	<div th:replace="headerfragments.html">
-	</div>
 		<form th:object="${cloth}" th:action="@{save}" action="#" method="post">
 		
 			<div>
