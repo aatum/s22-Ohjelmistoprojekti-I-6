@@ -18,9 +18,9 @@
 			<th>Type</th>
 			<th>Producer</th>
 			<th>Price</th>
-			<th></th>
-			<th></th>
-		</tr>
+			<th sec:authorize="hasRole('ADMIN')"></th>
+			<th sec:authorize="hasRole('ADMIN')"></th>
+		</tr> 
 
 		<tr th:each="cloth : ${cloth}">
 			<td th:text="${cloth.id}"></td>
@@ -28,8 +28,8 @@
 			<td th:text="${cloth.type}"></td>
 			<td> <a th:text="${cloth.producer.name}" th:href="@{/listbyproducer/{id}(id=${cloth.producer.producerid})}"></a></td>
 			<td th:text="${cloth.price}"></td>
-			<td> <a th:href="@{/delete/{id}(id=${cloth.id})}" class="btn btn-outline-danger">Delete</a></td>
- 			<td><a th:href="@{/edit/{id}(id=${cloth.id})}" class="btn btn-outline-info">Edit</a></td>
+			<td sec:authorize="hasRole('ADMIN')"> <a th:href="@{/delete/{id}(id=${cloth.id})}" class="btn btn-outline-danger">Delete</a></td>
+ 			<td sec:authorize="hasRole('ADMIN')"><a th:href="@{/edit/{id}(id=${cloth.id})}" class="btn btn-outline-info">Edit</a></td>
 		</tr>
 	</table>
 </body>
