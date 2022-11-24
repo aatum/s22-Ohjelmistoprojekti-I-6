@@ -1,0 +1,35 @@
+CREATE TABLE cloth (
+    id BIGINT(20) NOT NULL,
+    description VARCHAR(255) NULL DEFAULT NULL COLLATE 'latin1_swedish_ci',
+    name VARCHAR(255) NULL DEFAULT NULL COLLATE 'latin1_swedish_ci',
+    price DOUBLE NOT NULL,
+    type VARCHAR(255) NULL DEFAULT NULL COLLATE 'latin1_swedish_ci',
+    producerid BIGINT(20) NULL DEFAULT NULL,
+    PRIMARY KEY (id) USING BTREE,
+    INDEX FKf17y3n084k362bq6xemts2u81 (producerid) USING BTREE,
+    CONSTRAINT FKf17y3n084k362bq6xemts2u81 FOREIGN KEY (producerid) REFERENCES producer (producerid) ON UPDATE RESTRICT ON DELETE RESTRICT
+)
+COLLATE='latin1_swedish_ci'
+ENGINE=InnoDB
+;
+CREATE TABLE hibernate_sequence (
+    next_not_cached_value BIGINT(21) NOT NULL,
+    minimum_value BIGINT(21) NOT NULL,
+    maximum_value BIGINT(21) NOT NULL,
+    start_value BIGINT(21) NOT NULL COMMENT 'start value when sequences is created or value if RESTART is used',
+    increment BIGINT(21) NOT NULL COMMENT 'increment value',
+    cache_size BIGINT(21) UNSIGNED NOT NULL,
+    cycle_option TINYINT(1) UNSIGNED NOT NULL COMMENT '0 if no cycles are allowed, 1 if the sequence should begin a new cycle when maximum_value is passed',
+    cycle_count BIGINT(21) NOT NULL COMMENT 'How many cycles have been done'
+)
+COLLATE='latin1_swedish_ci'
+ENGINE=InnoDB
+;
+CREATE TABLE producer (
+    producerid BIGINT(20) NOT NULL,
+    name VARCHAR(255) NULL DEFAULT NULL COLLATE 'latin1_swedish_ci',
+    PRIMARY KEY (producerid) USING BTREE
+)
+COLLATE='latin1_swedish_ci'
+ENGINE=InnoDB
+;
