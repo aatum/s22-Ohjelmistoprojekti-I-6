@@ -7,7 +7,7 @@
 </head>
 
 
-<body>
+<body sec:authorize="hasRole('ADMIN')">
 	<div th:replace="headerfragments.html"></div>
 	<div>
 	<h1>Add product</h1>

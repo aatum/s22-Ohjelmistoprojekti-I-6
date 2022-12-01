@@ -7,7 +7,7 @@
 </head>
 
 	<div th:replace="headerfragments.html"></div>
-<body>
+<body sec:authorize="hasRole('ADMIN')">
 	<h1>Edit producer</h1>
 	<div>
 		<form th:object="${producer}" th:action="@{/saveproducer}" action="#" method="post">

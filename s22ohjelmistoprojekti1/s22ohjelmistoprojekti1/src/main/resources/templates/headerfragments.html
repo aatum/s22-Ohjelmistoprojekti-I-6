@@ -12,13 +12,13 @@
         <a class="nav-link" href="/clothlist">Products</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="/add">Add product</a>
+        <a class="nav-link" href="/add" sec:authorize="hasRole('ADMIN')">Add product</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="/producerlist">Producerlist</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="/addproducer">Add producer</a>
+        <a class="nav-link" href="/addproducer" sec:authorize="hasRole('ADMIN')">Add producer</a>
       </li>
       <li class="nav-item">
 		<li sec:authorize="isAuthenticated()"><a class="nav-link" href="/logout">Log out</a>

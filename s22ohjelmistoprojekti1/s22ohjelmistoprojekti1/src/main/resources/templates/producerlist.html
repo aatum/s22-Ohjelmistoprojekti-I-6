@@ -12,15 +12,15 @@
 		<tr>
 			<th>Id</th>
 			<th>Name</th>
-			<th> </th>
-			<th> </th>
+			<th sec:authorize="hasRole('ADMIN')"> </th>
+			<th sec:authorize="hasRole('ADMIN')"> </th>
 		</tr>
 
 		<tr th:each="producer : ${producer}">
 			<td th:text="${producer.producerid}"></td>
 			<td th:text="${producer.name}"></td>
-			<td> <a th:href="@{/deleteproducer/{id}(id=${producer.producerid})}" class="btn btn-outline-danger">Delete</a></td>
- 			<td><a th:href="@{/editproducer/{id}(id=${producer.producerid})}" class="btn btn-outline-info">Edit</a></td>
+			<td sec:authorize="hasRole('ADMIN')"> <a th:href="@{/deleteproducer/{id}(id=${producer.producerid})}" class="btn btn-outline-danger">Delete</a></td>
+ 			<td sec:authorize="hasRole('ADMIN')"><a th:href="@{/editproducer/{id}(id=${producer.producerid})}" class="btn btn-outline-info">Edit</a></td>
 		</tr>
 	</table>
 </body>
