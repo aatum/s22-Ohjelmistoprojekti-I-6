@@ -53,7 +53,7 @@ public class ClothController {
 		return "producerlist";
 	}
 
-	@PreAuthorize("hasAuthority('ADMIN')")
+	@PreAuthorize("hasRole('ADMIN')")
 	@GetMapping("add")
 	public String addCloth(Model model) {
 		model.addAttribute("cloth", new Cloth());
@@ -79,21 +79,21 @@ public class ClothController {
 		return "redirect:producerlist";
 	}
 
-	@PreAuthorize("hasAuthority('ADMIN')")
+	@PreAuthorize("hasRole('ADMIN')")
 	@GetMapping("/delete/{id}")
 	public String deleteCloth(@PathVariable("id") Long id, Model model) {
 		clothRepository.deleteById(id);
 		return "redirect:../clothlist";
 	}
 
-	@PreAuthorize("hasAuthority('ADMIN')")
+	@PreAuthorize("hasRole('ADMIN')")
 	@GetMapping("/deleteproducer/{id}")
 	public String deleteProducer(@PathVariable("id") Long id, Model model) {
 		producerRepository.deleteById(id);
 		return "redirect:../producerlist";
 	}
 
-	@PreAuthorize("hasAuthority('ADMIN')")
+	@PreAuthorize("hasRole('ADMIN')")
 	@GetMapping("/edit/{id}")
 	public String editCloth(@PathVariable("id") Long id, Model model) {
 		model.addAttribute("cloth", clothRepository.findById(id));
@@ -101,14 +101,14 @@ public class ClothController {
 		return "editcloth";
 	}
 
-	@PreAuthorize("hasAuthority('ADMIN')")
+	@PreAuthorize("hasRole('ADMIN')")
 	@GetMapping("/editproducer/{id}")
 	public String editProducer(@PathVariable("id") Long id, Model model) {
 		model.addAttribute("producer", producerRepository.findById(id));
 		return "editproducer";
 	}
 
-	@PreAuthorize("hasAuthority('ADMIN')")
+	@PreAuthorize("hasRole('ADMIN')")
 	@GetMapping("/listbyproducer/{id}")
 	public String listbyProducer(@PathVariable("id") Long id, Model model) {
 		model.addAttribute("cloth", clothRepository.findAll());
