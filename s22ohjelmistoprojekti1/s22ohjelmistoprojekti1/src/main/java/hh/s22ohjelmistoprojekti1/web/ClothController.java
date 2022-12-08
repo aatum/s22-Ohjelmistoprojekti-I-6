@@ -15,13 +15,14 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.RestController;
 
 import hh.s22ohjelmistoprojekti1.domain.Cloth;
 import hh.s22ohjelmistoprojekti1.domain.ClothRepository;
 import hh.s22ohjelmistoprojekti1.domain.Producer;
 import hh.s22ohjelmistoprojekti1.domain.ProducerRepository;
 
-@CrossOrigin(origins= {"*"}, maxAge = 4800, allowCredentials = "false" )
+@CrossOrigin(origins = "*", allowedHeaders = "*")
 @Controller
 public class ClothController {
 
@@ -115,36 +116,4 @@ public class ClothController {
 		producerRepository.findById(id).ifPresent(o -> model.addAttribute("producer", o));
 		return "listbyproducer";
 	}
-
-	// get all clothes with REST
-	@RequestMapping(value = "/cloths", method = RequestMethod.GET)
-	public @ResponseBody List<Cloth> clothListRest() {
-		return (List<Cloth>) clothRepository.findAll();
-	}
-
-	// get id with REST
-	@RequestMapping(value = "api/cloths/{id}", method = RequestMethod.GET)
-
-	public @ResponseBody Optional<Cloth> findClothRest(@PathVariable("id") Long clothId) {
-		return clothRepository.findById(clothId);
-	}
-
-	// delete with REST
-	@DeleteMapping("/delete/{id}")
-	void deleteCloth(@PathVariable Long clothId) {
-		clothRepository.deleteById(clothId);
-	}
-
-
-	// delete with REST - ei toimi?
-	@RequestMapping(value = "api/delete/{id}", method = RequestMethod.DELETE)
-	public @ResponseBody Optional<Cloth> deleteClothRest(@PathVariable("id") Long id) {
-		return clothRepository.findById(id);
-	}
-
-    @RequestMapping(value = "/getclothes")
-	 public @ResponseBody List<Cloth> getClothes() {	
-		return (List<Cloth>) clothRepository.findAll();
-	}   
-
 }

@@ -5,6 +5,7 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
 
 import hh.s22ohjelmistoprojekti1.domain.Cloth;
 import hh.s22ohjelmistoprojekti1.domain.ClothRepository;
@@ -13,6 +14,8 @@ import hh.s22ohjelmistoprojekti1.domain.ProducerRepository;
 
 @SpringBootApplication
 public class S22ohjelmistoprojekti1Application {
+	
+	
 	
 	@Autowired
 	ClothRepository clothRepository;

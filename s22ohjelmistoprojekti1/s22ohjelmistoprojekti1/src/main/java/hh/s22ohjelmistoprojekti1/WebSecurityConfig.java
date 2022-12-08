@@ -28,7 +28,8 @@ import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-        http
+        http.cors().and()
+        .csrf().disable()
         .authorizeRequests().antMatchers("/css/**").permitAll() // Enable css when logged out
         .and()
         .authorizeRequests().anyRequest().authenticated()
@@ -38,10 +39,9 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
           .permitAll()
           .and()
       .logout()
-          .permitAll();
+          .permitAll();  
     }
-
-
+    
     @Bean
     @Override
     public UserDetailsService userDetailsService() {
@@ -68,17 +68,5 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     	users.add(user);
 
         return new InMemoryUserDetailsManager(users);
-    }
-
-    @Bean 
-    public CorsConfigurationSource corsConfigurationSource() { 
-    CorsConfiguration configuration = new CorsConfiguration(); 
-    configuration.setAllowedOrigins(Arrays.asList("*")); 
-    configuration.setAllowedMethods(Arrays.asList("GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS")); 
-    configuration.setAllowedHeaders(Arrays.asList("authorization", "content-type", "x-auth-token")); 
-    configuration.setExposedHeaders(Arrays.asList("x-auth-token")); 
-    UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource(); 
-    source.registerCorsConfiguration("/**", configuration); 
-    return source; 
     }
 }
