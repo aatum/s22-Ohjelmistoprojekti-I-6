@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -50,7 +51,7 @@ public class ClothController {
 		return "producerlist";
 	}
 
-	// @PreAuthorize("hasAuthority('ADMIN')")
+	@PreAuthorize("hasAuthority('ADMIN')")
 	@GetMapping("add")
 	public String addCloth(Model model) {
 		model.addAttribute("cloth", new Cloth());
@@ -76,21 +77,21 @@ public class ClothController {
 		return "redirect:producerlist";
 	}
 
-	// @PreAuthorize("hasAuthority('ADMIN')")
+	@PreAuthorize("hasAuthority('ADMIN')")
 	@GetMapping("/delete/{id}")
 	public String deleteCloth(@PathVariable("id") Long id, Model model) {
 		clothRepository.deleteById(id);
 		return "redirect:../clothlist";
 	}
 
-	// @PreAuthorize("hasAuthority('ADMIN')")
+	@PreAuthorize("hasAuthority('ADMIN')")
 	@GetMapping("/deleteproducer/{id}")
 	public String deleteProducer(@PathVariable("id") Long id, Model model) {
 		producerRepository.deleteById(id);
 		return "redirect:../producerlist";
 	}
 
-	// @PreAuthorize("hasAuthority('ADMIN')")
+	@PreAuthorize("hasAuthority('ADMIN')")
 	@GetMapping("/edit/{id}")
 	public String editCloth(@PathVariable("id") Long id, Model model) {
 		model.addAttribute("cloth", clothRepository.findById(id));
@@ -98,14 +99,14 @@ public class ClothController {
 		return "editcloth";
 	}
 
-	// @PreAuthorize("hasAuthority('ADMIN')")
+	@PreAuthorize("hasAuthority('ADMIN')")
 	@GetMapping("/editproducer/{id}")
 	public String editProducer(@PathVariable("id") Long id, Model model) {
 		model.addAttribute("producer", producerRepository.findById(id));
 		return "editproducer";
 	}
 
-	// @PreAuthorize("hasAuthority('ADMIN')")
+	@PreAuthorize("hasAuthority('ADMIN')")
 	@GetMapping("/listbyproducer/{id}")
 	public String listbyProducer(@PathVariable("id") Long id, Model model) {
 		model.addAttribute("cloth", clothRepository.findAll());
@@ -126,18 +127,10 @@ public class ClothController {
 		return clothRepository.findById(clothId);
 	}
 
-
 	// delete with REST
 	@DeleteMapping("/delete/{id}")
 	void deleteCloth(@PathVariable Long clothId) {
 		clothRepository.deleteById(clothId);
 	}
-
-	// delete with REST - ei toimi?
-	@RequestMapping(value = "api/delete/{id}", method = RequestMethod.DELETE)
-	public @ResponseBody Optional<Cloth> deleteClothRest(@PathVariable("id") Long id) {
-		return clothRepository.findById(id);
-	}
-
 
 }
