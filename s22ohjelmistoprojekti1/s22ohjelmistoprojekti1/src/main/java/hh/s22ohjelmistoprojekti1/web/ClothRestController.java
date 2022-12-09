@@ -43,4 +43,8 @@ public class ClothRestController {
 		return (List<Cloth>) clothRepository.findAll();
 	}
 
+	@RequestMapping(value = "api/producers")
+	public @ResponseBody List<Producer> getProducers() {
+		return (List<Producer>) producerRepository.findAll();
+	}
 }
