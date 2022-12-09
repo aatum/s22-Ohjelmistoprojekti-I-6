@@ -28,6 +28,8 @@ public class Cloth {
 
 	}
 
+	// parameterized constructor
+
 	public Cloth(String name, String type, Producer producer, String description, double price) {
 		super();
 		this.name = name;
@@ -36,6 +38,8 @@ public class Cloth {
 		this.description = description;
 		this.price = price;
 	}
+
+	// getters&setters
 
 	public Long getId() {
 		return id;

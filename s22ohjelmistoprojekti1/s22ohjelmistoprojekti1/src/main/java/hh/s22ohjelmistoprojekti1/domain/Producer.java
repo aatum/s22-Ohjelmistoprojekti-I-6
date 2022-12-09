@@ -23,6 +23,8 @@ public class Producer {
 	@OneToMany(cascade = CascadeType.ALL, mappedBy = "producer")
 	private List<Cloth> clothes;
 
+	// parameterized constructor
+
 	public Producer(String name) {
 		super();
 		this.name = name;
@@ -31,6 +33,8 @@ public class Producer {
 	public Producer() {
 
 	}
+
+	// getters&setters
 
 	public Long getProducerid() {
 		return producerid;
@@ -55,7 +59,9 @@ public class Producer {
 	public void setClothes(List<Cloth> clothes) {
 		this.clothes = clothes;
 	}
-	
+
+	// toString method
+
 	@Override
 	public String toString() {
 		return "Producer [producerid=" + producerid + ", name=" + name + ", clothes=" + clothes + "]";
